@@ -1,0 +1,26 @@
+<div class="container" id="appContainer">
+  <h1>Catálogo de Filmes</h1>
+
+  {{#if mostrarMensagem}}
+    <p class="info">Confira a lista de filmes abaixo!</p>
+    <ul class="filmes-lista">
+      {{#each filmes}}
+        <li class="filme-item {{#if assistido}}assistido{{else}}nao-assistido{{/if}}" data-id="{{id}}">
+          <div class="left">
+            <span class="titulo">{{titulo}}</span>
+            <span class="ano">({{ano}})</span>
+          </div>
+          <div class="right">
+            <span class="badge {{#if assistido}}badge-verde{{else}}badge-vermelho{{/if}}">
+              {{#if assistido}}Assistido{{else}}Não assistido{{/if}}
+            </span>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>Nenhum filme cadastrado.</p>
+  {{/if}}
+
+  <button id="alertBtn">Clique e veja uma dica</button>
+</div>
